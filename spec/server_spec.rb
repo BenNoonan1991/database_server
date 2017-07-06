@@ -14,4 +14,10 @@ describe 'Server' do
     get '/'
     expect(last_response.status).to eq(200)
   end
+
+  it 'stores params' do
+    get '/set', :somekey => "Test" do
+      expect(last_response.body).to include("Test")
+    end
+  end
 end
