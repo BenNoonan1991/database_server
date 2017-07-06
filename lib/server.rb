@@ -10,3 +10,7 @@ end
 get '/set' do
   session[:somekey] = params[:somekey]
 end
+
+get '/get' do
+  @key = session[:somekey]
+end

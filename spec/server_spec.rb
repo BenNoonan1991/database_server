@@ -20,4 +20,11 @@ describe 'Server' do
       expect(last_response.body).to include("Test")
     end
   end
+
+  it 'can retrieve the value stored at somekey' do
+    get '/set', :somekey => "Test" do
+      get '/get', :key => "somekey"
+      expect(last_response.body).to include("Test")
+    end
+  end
 end
